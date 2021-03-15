@@ -1,0 +1,10 @@
+#your-location {
+  color: #ea4335;
+  border-radius: 15px;
+}
+button {
+  background: white;
+  border: solid 1px #5199d7;
+  padding: 8px 15px;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+}
