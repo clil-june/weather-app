@@ -7,6 +7,7 @@ import Temperature from "./Temperature";
 import Description from "./Description";
 import Time from "./Time"
 import Iformation from "./Information";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Time />
       <Iformation />
       </div>
+      <Footer />
     </div>
   );
 }
