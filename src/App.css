@@ -1,10 +1,10 @@
 .project {
   background: linear-gradient(white, #d4f0fe);
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
   padding: 40px;
   border: solid #b6e4fe;
-  border-radius: 16px;
+  border-radius: 20px;
   font-family: "Comfortaa", cursive;
   color: #5199d7;
   max-height: 650px;

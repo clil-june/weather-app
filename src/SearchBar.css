@@ -13,3 +13,6 @@
   padding: 8px;
   box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
 }
+#search{
+  cursor: pointer;
+}
