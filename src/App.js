@@ -6,6 +6,7 @@ import City from "./City";
 import Temperature from "./Temperature";
 import Description from "./Description";
 import Time from "./Time"
+import Iformation from "./Information";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Temperature />
       <Description />
       <Time />
+      <Iformation />
       </div>
     </div>
   );
