@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Time from "./Time";
 import "./Content.css";
 
-export default function Content (){
+export default function Content (props){
+    const [contents, setContents] = useState ({ready:false});
+
+    function reciveData (respone){
+        console.log(respone.data);
+        setContents({
+            ready: true,
+            city: response.data.name,
+            temp: respone.data.main.temp,
+            description: response.data.weather[0].description,
+            icon: response.data.weather[0].icon,
+            wind: response.data.wind.speed,
+            humidity: response.data.main.humidity
+        })
+    }
+
+    function search (){
+        const apiKey = "691e6f287f8a1dd47bdf252b202e00d0";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&&units=metric`;
+axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
+    }
+
+    if (contents.ready){
     return (
         <div className="content">
       <form autocomplete="off" id="search-form" >
@@ -15,24 +38,28 @@ export default function Content (){
       </button>
 
       <h1 id="location">
-        Sde Boker
+        {reciveData.city}
       </h1>
 
       <h2>
-      <span id="temperature">16</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
+      <span id="temperature">{reciveData.temp}</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
       </h2>
 
       <div className="Description">
-    <section id="dicription">Cloudy</section>
-    <img src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png" alt="weather icon" id="icon" />
+    <section id="dicription">{reciveData.description}</section>
+    <img src={reciveData.icon} alt="weather icon" id="icon" />
 </div>
 
 <Time />
 
 <p>
-        <div id="wind"><i class="fas fa-wind"></i> Wind: 37 km/h</div>
-        <div id="humidity"><i class="fas fa-tint"></i> Humidity: 54%</div>
+        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: {reciveData.wind} km/h</div>
+        <div id="humidity"><i class="fas fa-tint"></i> Humidity: {reciveData.humidity}%</div>
       </p>
      </div> 
     );
+    }
+    else{
+        return "Coming soon..."
+    }
 }
