@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import Time from "./Time";
 import "./Content.css";
 
 export default function Content (props){
-    const [contents, setContents] = useState ({ready:false});
-
+  const [ready, setReady]=useState(false);
+    const [contents, setContents] = useState (null);
+    
     function reciveData (respone){
-        console.log(respone.data);
         setContents({
             ready: true,
             city: response.data.name,
@@ -19,13 +19,8 @@ export default function Content (props){
         })
     }
 
-    function search (){
-        const apiKey = "691e6f287f8a1dd47bdf252b202e00d0";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&&units=metric`;
-axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
-    }
 
-    if (contents.ready){
+    if (ready){
     return (
         <div className="content">
       <form autocomplete="off" id="search-form" >
@@ -60,7 +55,10 @@ axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
     );
     }
     else{
-      search();
+      const apiKey = "e75376106dace0797a632d47f62a8825";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&&units=metric`;
+    axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
+
         return "Coming soon..."
     }
 }
