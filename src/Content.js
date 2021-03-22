@@ -1,26 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import axios from "axios";
 import Time from "./Time";
 import "./Content.css";
 
-export default function Content (props){
-  const [ready, setReady]=useState(false);
-    const [contents, setContents] = useState (null);
-    
-    function reciveData (respone){
-        setContents({
-            ready: true,
-            city: response.data.name,
-            temp: respone.data.main.temp,
-            description: response.data.weather[0].description,
-            icon: response.data.weather[0].icon,
-            wind: response.data.wind.speed,
-            humidity: response.data.main.humidity
-        })
-    }
-
-
-    if (ready){
+export default function Content (){
+  
     return (
         <div className="content">
       <form autocomplete="off" id="search-form" >
@@ -33,32 +17,24 @@ export default function Content (props){
       </button>
 
       <h1 id="location">
-        {contents.city}
+        Sde Boker
       </h1>
 
       <h2>
-      <span id="temperature">{contents.temp}</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
+      <span id="temperature">16</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
       </h2>
 
       <div className="Description">
-    <section id="dicription">{contents.description}</section>
-    <img src={contents.icon} alt="weather icon" id="icon" />
+    <section id="dicription">Cloudy</section>
+    <img src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png" alt="weather icon" id="icon" />
 </div>
 
 <Time />
 
 <p>
-        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: {contents.wind} km/h</div>
-        <div id="humidity"><i class="fas fa-tint"></i> Humidity: {contents.humidity}%</div>
+        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: 37 km/h</div>
+        <div id="humidity"><i class="fas fa-tint"></i> Humidity: 54%</div>
       </p>
      </div> 
     );
-    }
-    else{
-      const apiKey = "e75376106dace0797a632d47f62a8825";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&&units=metric`;
-    axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
-
-        return "Coming soon..."
-    }
 }
