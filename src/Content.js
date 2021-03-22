@@ -38,28 +38,29 @@ axios.get(`${apiUrl}&appid${apiKey}`).then(reciveData);
       </button>
 
       <h1 id="location">
-        {reciveData.city}
+        {contents.city}
       </h1>
 
       <h2>
-      <span id="temperature">{reciveData.temp}</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
+      <span id="temperature">{contents.temp}</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
       </h2>
 
       <div className="Description">
-    <section id="dicription">{reciveData.description}</section>
-    <img src={reciveData.icon} alt="weather icon" id="icon" />
+    <section id="dicription">{contents.description}</section>
+    <img src={contents.icon} alt="weather icon" id="icon" />
 </div>
 
 <Time />
 
 <p>
-        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: {reciveData.wind} km/h</div>
-        <div id="humidity"><i class="fas fa-tint"></i> Humidity: {reciveData.humidity}%</div>
+        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: {contents.wind} km/h</div>
+        <div id="humidity"><i class="fas fa-tint"></i> Humidity: {contents.humidity}%</div>
       </p>
      </div> 
     );
     }
     else{
+      search();
         return "Coming soon..."
     }
 }
