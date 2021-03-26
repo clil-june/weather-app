@@ -15,6 +15,6 @@ let minute = now.getMinutes();
 }
 else{
   return(
-<h3 classname="time">{day}, {hour}:{minute}</h3>);
+<h3 className="time">{day}, {hour}:{minute}</h3>);
 }
 }

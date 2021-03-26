@@ -23,13 +23,13 @@ setContent({
 if(content.ready){
     return (
         <div className="content">
-      <form autocomplete="off" id="search-form" >
+      <form autoComplete="off" id="search-form" >
       <input id="search-bar" type="search" placeholder="Enter city" />
       <input id="search" type="submit" value="search" />
      </form> 
 
      <button id="your-location">
-        <i class="fas fa-map-marker-alt"></i>
+        <i className="fas fa-map-marker-alt"></i>
       </button>
 
       <h1 id="location">
@@ -37,7 +37,7 @@ if(content.ready){
       </h1>
 
       <h2>
-      <span id="temperature">{Math.round(content.temperature)}</span> <small class="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
+      <span id="temperature">{Math.round(content.temperature)}</span> <small className="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
       </h2>
 
       <div className="Description">
@@ -48,8 +48,8 @@ if(content.ready){
 <Time />
 
 <p>
-        <div id="wind"><i class="fas fa-wind"></i> Wind Speed: {content.wind} km/h</div>
-        <div id="humidity"><i class="fas fa-tint"></i> Humidity: {content.humidity}%</div>
+        <section id="wind"><i className="fas fa-wind"></i> Wind Speed: {Math.round(content.wind)} km/h</section>
+        <section id="humidity"><i className="fas fa-tint"></i> Humidity: {Math.round(content.humidity)}%</section>
       </p>
      </div> 
     );
