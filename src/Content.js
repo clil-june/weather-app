@@ -11,7 +11,7 @@ export default function Contents (props){
 function handleResponse (response) {
 setContent({
   ready: true,
-  city: response.data.name,
+  name: response.data.name,
   temperature:response.data.main.temp,
   description:response.data.weather[0].description,
   wind:response.data.wind.speed,
@@ -26,6 +26,7 @@ axios.get(`${apiUrl}&appid${apiKey}`).then(handleResponse);
 }
 
 function handleSearch(event){
+  event.preventDefault();
   setCity(event.target.value);
 }
 
