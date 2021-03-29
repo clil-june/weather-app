@@ -33,6 +33,7 @@ h1 {
   margin: 40px 0px;
   font-size: 36px;
   font-weight: normal;
+  text-transform: capitalize;
 }
 #temperature {
   font-size: 36px;
@@ -53,10 +54,15 @@ h1 {
 #fahrenheit:hover {
   text-decoration: underline;
 }
-p {
-  margin: 50px 0px 0px 0px;
+.description {
+  text-transform: capitalize;
+}
+ul {
+  margin: 40px 0px 0px 0px;
+  list-style: none;
+  padding: 0px;
 }
 #wind,
 #humidity {
-  padding: 5px 0px;
+  padding: 8px 0px;
 }

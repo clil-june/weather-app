@@ -1,60 +1,58 @@
 import React,{useState} from "react";
 import axios from "axios";
-import Time from "./Time";
+import WeatherContent from "./WeatherContent";
 import "./Content.css";
 
-export default function Contents (){
+export default function Contents (props){
   const[content, setContent]=useState({ready: false});
-let city="Tel Aviv"
-let apiKey = "e75376106dace0797a632d47f62a8825";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
-axios.get(`${apiUrl}&appid${apiKey}`).then(handleResponse);
+  const[city, setCity]=useState(props.defaultCity)
+
 
 function handleResponse (response) {
 setContent({
   ready: true,
-  //city:response.data.main.name,
+  city: response.data.name,
   temperature:response.data.main.temp,
   description:response.data.weather[0].description,
   wind:response.data.wind.speed,
   humidity:response.data.main.humidity
 });
-} 
+}
+
+function search(){
+let apiKey = "691e6f287f8a1dd47bdf252b202e00d0";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`;
+axios.get(`${apiUrl}&appid${apiKey}`).then(handleResponse);
+}
+
+function handleSearch(event){
+  setCity(event.target.value);
+}
+
+function handleSubmit(event){
+  event.preventDefault();
+  search();
+}
+
+
 if(content.ready){
     return (
         <div className="content">
       <form autoComplete="off" id="search-form" >
-      <input id="search-bar" type="search" placeholder="Enter city" />
-      <input id="search" type="submit" value="search" />
+      <input id="search-bar" type="search" placeholder="Enter city" onChange={handleSearch} />
+      <input id="search" type="submit" value="search" onSubmit={handleSubmit} />
      </form> 
 
      <button id="your-location">
         <i className="fas fa-map-marker-alt"></i>
       </button>
 
-      <h1 id="location">
-        {city}
-      </h1>
-
-      <h2>
-      <span id="temperature">{Math.round(content.temperature)}</span> <small className="unit"><a href="/" id="celsius">°C</a> |<a href="/" id="fahrenheit"> °F</a></small>
-      </h2>
-
-      <div className="Description">
-    <section id="dicription">{content.description}</section>
-    <img src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png" alt="weather icon" id="icon" />
+      <WeatherContent data={content}/>
 </div>
-
-<Time />
-
-<p>
-        <section id="wind"><i className="fas fa-wind"></i> Wind Speed: {Math.round(content.wind)} km/h</section>
-        <section id="humidity"><i className="fas fa-tint"></i> Humidity: {Math.round(content.humidity)}%</section>
-      </p>
-     </div> 
     );
 }
 else{
-  return "coming soon..."
+  search();
+  return "Coming Soon..."
 }
 }
