@@ -39,9 +39,9 @@ function handleSubmit(event){
 if(content.ready){
     return (
         <div className="content">
-      <form autoComplete="off" id="search-form" >
+      <form autoComplete="off" id="search-form" onSubmit={handleSubmit} >
       <input id="search-bar" type="search" placeholder="Enter city" onChange={handleSearch} />
-      <input id="search" type="submit" value="search" onSubmit={handleSubmit} />
+      <input id="search" type="submit" value="search" />
      </form> 
 
      <button id="your-location">
