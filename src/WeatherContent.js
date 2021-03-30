@@ -1,5 +1,6 @@
 import React from "react";
 import Time from "./Time";
+import WeahterIcon from "./WeatherIcon";
 
 export default function WeatherContent(props){
     return(
@@ -14,7 +15,7 @@ export default function WeatherContent(props){
 
       <div className="description">
     <section id="dicription">{props.data.description}</section>
-    <img src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png" alt="weather icon" id="icon" />
+    <WeahterIcon data={props.data.iconUrl} />
 </div>
 
 <Time />

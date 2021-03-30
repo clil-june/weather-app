@@ -57,6 +57,9 @@ h1 {
 .description {
   text-transform: capitalize;
 }
+svg {
+  margin-top: 20px;
+}
 ul {
   margin: 40px 0px 0px 0px;
   list-style: none;

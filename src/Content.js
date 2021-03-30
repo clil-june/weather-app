@@ -14,6 +14,7 @@ setContent({
   name: response.data.name,
   temperature:response.data.main.temp,
   description:response.data.weather[0].description,
+  icon: response.data.weather[0].icon,
   wind:response.data.wind.speed,
   humidity:response.data.main.humidity
 });
