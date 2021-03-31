@@ -1,6 +1,9 @@
+.App {
+  padding: 10px;
+}
 .project {
   background: linear-gradient(white, #d4f0fe);
-  max-width: 300px;
+  max-width: 383px;
   margin: 0 auto;
   padding: 40px;
   border: solid #b6e4fe;

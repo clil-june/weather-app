@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import WeatherContent from "./WeatherContent";
+import Forcast from "./Forcast";
 import "./Content.css";
 
 export default function Contents (props){
