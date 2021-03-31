@@ -1,44 +1,40 @@
 import React from "react";
+import "./Forcast.css";
 
 export default function Forcast(){
     return(
         <div>
         <ul class="forcast">
-    <li>
-        Tomorrow <br />
-        6°C <br />
+    <li className="forcast-list">
+        Thu <br />
+        15 6 <br />
         ☀
     </li>
-    <li>
-        Wednesday
+    <li className="forcast-list">
+        Fri
         <br />
         -1°C
         <br />
         ❄
     </li>
-    <li>
-        Thursday<br />
+    <li className="forcast-list">
+        Sat<br />
         8°C<br />
         🌧
     </li>
-    <li>
-        Friday
+    <li className="forcast-list">
+        Sun
         <br />
         10°C
         <br />
         ☀
     </li>
-    <li>
-        Saturday
+    <li className="forcast-list">
+        Mon
         <br />
         9°C
         <br />
         🌤
-    </li>
-    <li>
-        Sunday <br />
-        12° <br />
-        ☀
     </li>
     </ul>
     </div>

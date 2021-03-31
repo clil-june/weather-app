@@ -1,0 +1,12 @@
+.forcast-list {
+  font-size: 12px;
+  text-align: center;
+  margin: 10px;
+  padding: 2px;
+  border: solid #b6e4fe;
+  border-radius: 10px;
+  max-width: 120px;
+  position: relative;
+  top: -60px;
+  right: -20px;
+}
