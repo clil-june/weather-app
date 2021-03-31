@@ -15,7 +15,7 @@ export default function WeatherContent(props){
 
       <div className="description">
     <section id="dicription">{props.data.description}</section>
-    <WeahterIcon data={props.data.iconUrl} />
+    <WeahterIcon code={props.data.icon} />
 </div>
 
 <Time />
