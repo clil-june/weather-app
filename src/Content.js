@@ -36,6 +36,18 @@ function handleSubmit(event){
   search();
 }
 
+function searchLocation (position){
+  let apiKey = "691e6f287f8a1dd47bdf252b202e00d0";
+  let lat = position.coords.latitude;
+  let lon= position.coords.longitude;
+  let locationUrl =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&&units=metric`;
+  axios.get(`${locationUrl}&appid${apiKey}`).then(handleResponse);
+}
+
+function getLocation (){
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 
 if(content.ready){
     return (
@@ -45,7 +57,7 @@ if(content.ready){
       <input id="search" type="submit" value="search" />
      </form> 
 
-     <button id="your-location">
+     <button onClick={getLocation} id="your-location">
         <i className="fas fa-map-marker-alt"></i>
       </button>
 
