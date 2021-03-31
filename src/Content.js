@@ -17,7 +17,8 @@ setContent({
   description:response.data.weather[0].description,
   icon: response.data.weather[0].icon,
   wind:response.data.wind.speed,
-  humidity:response.data.main.humidity
+  humidity:response.data.main.humidity,
+coordinates: response.data.coord,
 });
 }
 
@@ -68,7 +69,7 @@ if(content.ready){
       <WeatherContent data={content} size={75} />
       </div>
         <div className="col-4">
-          <Forcast />
+          <Forcast coords={content.coordinates} />
         </div>
       </div>
       </div>
