@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import axios from "axios";
 import WeatherContent from "./WeatherContent";
 import "./Content.css";
+import Forcast from "./Forcast";
 
 export default function Contents (props){
   const[content, setContent]=useState({ready: false});
@@ -51,6 +52,7 @@ function getLocation (){
 
 if(content.ready){
     return (
+      <div className="container">
         <div className="content">
       <form autoComplete="off" id="search-form" onSubmit={handleSubmit} >
       <input id="search-bar" type="search" placeholder="Enter city" onChange={handleSearch} />
@@ -61,8 +63,16 @@ if(content.ready){
         <i className="fas fa-map-marker-alt"></i>
       </button>
 
-      <WeatherContent data={content}/>
-</div>
+<div className="row">
+  <div className="col-8">
+      <WeatherContent data={content} size={75} />
+      </div>
+        <div className="col-4">
+          <Forcast />
+        </div>
+      </div>
+      </div>
+      </div>
     );
 }
 else{

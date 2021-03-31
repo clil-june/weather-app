@@ -1,8 +1,7 @@
 import React from "react";
 import Time from "./Time";
-import WeahterIcon from "./WeatherIcon";
+import Icon from "./Icon";
 import Temperature from "./Temperature";
-import Forcast from "./Forcast";
 
 export default function WeatherContent(props){
     return(
@@ -12,13 +11,12 @@ export default function WeatherContent(props){
     <h1 id="location" >
         {props.data.name}
       </h1>
-<div className="row">
-  <div className="col-8">
+
       <Temperature celsius={props.data.temperature} />
 
       <div className="description">
-    <section id="dicription">{props.data.description}</section>
-    <WeahterIcon code={props.data.icon} />
+    <section id="description">{props.data.description}</section>
+    <Icon code={props.data.icon} size={75} />
 </div>
 
 <Time />
@@ -28,10 +26,7 @@ export default function WeatherContent(props){
         <li id="humidity"><i className="fas fa-tint"></i> Humidity: {Math.round(props.data.humidity)}%</li>
       </ul>
       </div>
-      <div className="col-4">
-      <Forcast /></div>
       </div>
-     </div>
-     </div>
+     
      );
 }
