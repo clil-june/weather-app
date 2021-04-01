@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Icon from "./Icon";
-import "./Forcast.css";
+import "./Forecast.css";
 
 export default function Forcast(props){
 function handleResponse(response){
@@ -17,8 +17,8 @@ function handleResponse(response){
 
     return(
         <div>
-        <ul class="forcast">
-    <li className="forcast-list">
+        <ul class="forecast">
+    <li className="forecast-list">
         Thu <br />
 <Icon code="01d" size={20}/>
         15 / 6 

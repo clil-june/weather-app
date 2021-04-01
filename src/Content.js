@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import axios from "axios";
 import WeatherContent from "./WeatherContent";
 import "./Content.css";
-import Forcast from "./Forcast";
+import Forecast from "./Forecast";
 
 export default function Contents (props){
   const[content, setContent]=useState({ready: false});
@@ -69,7 +69,7 @@ if(content.ready){
       <WeatherContent data={content} size={75} />
       </div>
         <div className="col-4">
-          <Forcast coords={content.coordinates} />
+          <Forecast coords={content.coordinates} />
         </div>
       </div>
       </div>
