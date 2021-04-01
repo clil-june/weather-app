@@ -1,4 +1,5 @@
 import React from "react";
+import CityName from "./CityName";
 import Time from "./Time";
 import Icon from "./Icon";
 import Temperature from "./Temperature";
@@ -8,9 +9,7 @@ export default function WeatherContent(props){
     <div className="WeatherContent">
       <div className="container">
         
-    <h1 id="location" >
-        {props.data.name}
-      </h1>
+    <CityName name={props.data.name} />
 
       <Temperature celsius={props.data.temperature} />
 
