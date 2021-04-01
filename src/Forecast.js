@@ -1,13 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import Icon from "./Icon";
 import "./Forecast.css";
+import ForecastDay from "./ForecastDay";
 
 export default function Forcast(props){
+    let [loaded, setLoaded]=useState(false);
+    let [weatherData , setWeatherData]=useState(null);
+
 function handleResponse(response){
-    console.log(response.data);
+    setWeatherData(response.data.daily);
+    setLoaded(true);
 }
 
+if (loaded){
+  return(
+        <div>
+        <ul className="forecast">
+    <li className="forecast-list">
+      <ForecastDay data={weatherData[1]} />
+    </li>
+       </ul>
+    </div>
+    );  
+}
+else{
     let apiKey = "691e6f287f8a1dd47bdf252b202e00d0";
     let lon= props.coords.lon
     let lat= props.coords.lat
@@ -15,15 +31,7 @@ function handleResponse(response){
 
     axios.get(`${apiUrl}&appid${apiKey}`).then(handleResponse);
 
-    return(
-        <div>
-        <ul class="forecast">
-    <li className="forecast-list">
-        Thu <br />
-<Icon code="01d" size={20}/>
-        15 / 6 
-    </li>
-       </ul>
-    </div>
-    );
+    return null;
+}
+    
 }
