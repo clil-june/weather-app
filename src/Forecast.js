@@ -19,6 +19,18 @@ if (loaded){
     <li className="forecast-list">
       <ForecastDay data={weatherData[1]} />
     </li>
+    <li className="forecast-list">
+      <ForecastDay data={weatherData[2]} />
+    </li>
+    <li className="forecast-list">
+      <ForecastDay data={weatherData[3]} />
+    </li>
+    <li className="forecast-list">
+      <ForecastDay data={weatherData[4]} />
+    </li>
+    <li className="forecast-list">
+      <ForecastDay data={weatherData[5]} />
+    </li>
        </ul>
     </div>
     );  
